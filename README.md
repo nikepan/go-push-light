@@ -1,6 +1,6 @@
 # go-push-light
 
-This is a simple push server by Websocket (uses "github.com/gorilla/websocket")
+This is a simple push server by Websocket in Go (uses "github.com/gorilla/websocket")
 
 usage:
 
