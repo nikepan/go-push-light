@@ -38,7 +38,7 @@ func sendPub(intent string, obj string) string {
 			log.Printf("pub: %+v", msg)
 		}
 	}
-	return "{'status': 'ok'}"
+	return "{\"status\": \"ok\"}"
 }
 
 func pubHandler(c http.ResponseWriter, req *http.Request) {
