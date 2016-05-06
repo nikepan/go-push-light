@@ -9,3 +9,9 @@ usage:
   pub - http://127.0.0.1:8095/pub?intent=channelname.taskname.12345?obj={"id":123} // can send in post/get
   
   server will sent {"op": "intent", "intent": "channelname.taskname.12345", "obj": "{\"id\":123}"}
+
+  You can use pusher.js on page:
+
+  	pushSub(intent, function(obj){});
+
+  	pushUnub(intent);
