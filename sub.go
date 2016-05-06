@@ -6,8 +6,8 @@ import (
 )
 
 type SubscribeMsg struct {
-	Op   string `json:"op"`
-	Task string `json:"task"`
+	Op     string `json:"op"`
+	Intent string `json:"intent"`
 }
 
 type InboundMsg struct {
@@ -71,20 +71,20 @@ func (h *hub) run() {
 					log.Printf(err.Error())
 				}
 				if msg.Op == "sub" {
-					sub, ok := h.subs[msg.Task]
+					sub, ok := h.subs[msg.Intent]
 					if !ok {
 						sub = make(map[*connection]bool)
-						h.subs[msg.Task] = sub
+						h.subs[msg.Intent] = sub
 					}
 					sub[m.Conn] = true
-					log.Printf("sub: %+v %+v", m.Conn, msg.Task)
+					log.Printf("sub: %+v %+v", m.Conn, msg.Intent)
 				} else if msg.Op == "unsub" {
-					sub, ok := h.subs[msg.Task]
+					sub, ok := h.subs[msg.Intent]
 					if ok {
 						_, ok = sub[m.Conn]
 						if ok {
 							delete(sub, m.Conn)
-							log.Printf("unsub: %+v %+v", m.Conn, msg.Task)
+							log.Printf("unsub: %+v %+v", m.Conn, msg.Intent)
 						}
 					}
 				}

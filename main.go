@@ -20,13 +20,6 @@ func defaultAssetPath() string {
 	return p.Dir
 }
 
-func pubHandler(c http.ResponseWriter, req *http.Request) {
-	task := req.URL.Query().Get("task")
-	msg_json := []byte(sendPub(task))
-	c.Header().Set("Content-Type", "application/json")
-	c.Write(msg_json)
-}
-
 func main() {
 
 	flag.Parse()

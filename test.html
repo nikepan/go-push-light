@@ -15,7 +15,7 @@
 
 function makeEvent() {
 	var xhr = new XMLHttpRequest();
-	xhr.open('GET', 'http://127.0.0.1:8095/pub?task=channelname.taskname.12345', false);
+	xhr.open('GET', 'http://127.0.0.1:8095/pub?intent=channelname.taskname.12345&obj={"id":123}', false);
 	xhr.send();	
 }
 
@@ -23,7 +23,7 @@ var socket = new WebSocket("ws://127.0.0.1:8095/sub");
 
 socket.onopen = function() {
   console.log("Соединение установлено.");
-  socket.send('{"op": "sub", "task": "channelname.taskname.12345"}');
+  socket.send('{"op": "sub", "intent": "channelname.taskname.12345"}');
   //socket.send('{"op": "unsub", "task": "channelname.taskname.12345"}');
 };
 
