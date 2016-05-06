@@ -14,4 +14,4 @@ usage:
 
   	pushSub(intent, function(obj){});
 
-  	pushUnub(intent);
+  	pushUnsub(intent);
