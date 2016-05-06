@@ -1,6 +1,7 @@
 import requests
 import json
 from django.conf import settings
+from requests.exceptions import ConnectionError
 
 
 def push_intent(intent, obj=None):
@@ -14,7 +15,10 @@ def push_intent(intent, obj=None):
 
         pusher_url = settings.PUSHER_URL
 
-        resp = requests.post(pusher_url, data)
+        try:
+            resp = requests.post(pusher_url, data)
+        except ConnectionError:
+            return False
         if resp.status_code == 200:
             if resp.json()['status'] == 'ok':
                 return True
