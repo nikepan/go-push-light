@@ -19,6 +19,7 @@ usage:
   Also you can use pusher from python/django apps. See pusher.py module (use requests).
 
   Use:
+  
 	import from pusher import push_intent
-	
+
     push_intent(intent, obj)
