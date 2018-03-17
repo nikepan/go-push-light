@@ -1,4 +1,4 @@
-# go-push-light
+# Simple websocket push server
 
 [![Build Status](https://travis-ci.org/nikepan/go-push-light.svg?branch=master)](https://travis-ci.org/nikepan/go-push-light)
 [![download binaries](https://img.shields.io/badge/binaries-download-blue.svg)](https://github.com/nikepan/go-push-light/releases)
