@@ -1,0 +1,32 @@
+---
+project_name: go-push-light
+
+release:
+  github:
+    owner: nikepan
+    name: go-push-light
+
+builds:
+  - binary: go-push-light
+    goos: &goos
+      - darwin
+      - windows
+      - linux
+    goarch: &goarch
+      - amd64
+      - i386
+    env:
+      - CGO_ENABLED=0
+    main: ./
+    ldflags: -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}
+
+archive:
+  format_overrides:
+    - goos: windows
+      format: zip
+  files:
+    - test.html
+    - pusher.js
+    - pusher.py
+    - README.md
+    - LICENSE
